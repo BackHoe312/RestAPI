@@ -1,5 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query } from '@nestjs/common';
 import { CreateMovieDto } from './dto/create-movie.dto';
+import { UpdateMovieDto } from './dto/update-movie.dto';
 import { Movie } from './enitities/movie.enitity';
 import { MoviesService } from './movies.service';
 
@@ -37,7 +38,7 @@ export class MoviesController {
     // @Put() // Put은 리소스 모든 부분을 업데이트함.
 
     @Patch(':id')  // 리소스의 일부분만 업데이트함
-    patch(@Param('id') movieId: number, @Body() updateData) {
+    patch(@Param('id') movieId: number, @Body() updateData: UpdateMovieDto) {
         // return {
         //     updatedMovie: movieId,
         //     ...updateData,
